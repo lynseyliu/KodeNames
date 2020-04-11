@@ -1,6 +1,6 @@
 Forked from https://github.com/ninjabunny/KodeNames
 
-# KodeNames
+# KodeNames Pictures
 A popular ~~word~~ picture game.
 
 # Features
