@@ -5,30 +5,30 @@
   <meta charset="utf-8">
 
   <title>KodeNames</title>
-  <meta name="description" content="Kodenames">
+  <meta name="description" content="Kodenames Pictures!">
   <meta name="author" content="SitePoint">
   <link rel="stylesheet" href="styles/styles.css?v=1.0">
 </head>
 
 <body>
   <div>
-    <div id='header'>
-      <a href="https://github.com/ninjabunny/KodeNames" target='_blank'>Kodenames</a>
+    <div id='header' style="margin-top: 10px;">
+      <a id='title' href="https://github.com/lynseyliu/kodenames-pix" target='_blank'>Kodenames <sup>Pictures!</sup></a>
       <span id="redScore"></span>
       <span id="blueScore"></span>
-      <input type="text" id="seed" placeholder="seed" size="8" autofocus>
-      <button id="reset" onclick="fire()">Reset</button>
+      <input type="text" id="seed" placeholder="seed" size="8" style="margin-right: 20px;" autofocus>
+      <button id="reset" onclick="fire()"style="margin-right: 20px;">Reset</button>
       <span id="confirmText">confirm?</span>
-      <input type="checkbox" id="confirm">
-      <select id='gameMode'>
+      <input type="checkbox" style="margin-right: 20px;" id="confirm">
+      <!-- <select id='gameMode'>
         <option value="default">Default Word Set</option>
         <option value="spanish">Spanish Word Set</option>
         <option value="2knouns">2K Nouns</option>
         <option value="movies">Top 250 Movies</option>
         <option value="custom">Custom Words</option>
-      </select>
-      <span id="google_translate_element"></span>
-      <button id="spymaster" onclick="spyMaster()">SpyMaster</button>
+      </select> -->
+      <!-- <span id="google_translate_element"></span> -->
+      <button id="spymaster" onclick="spyMaster()" style="margin-right: 20px;">SpyMaster</button>
     </div>
   </div>
   <div id="board"></div>

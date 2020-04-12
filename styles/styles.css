@@ -13,22 +13,48 @@ body {
 	box-sizing : border-box;
 }
 
+* {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+#title {
+	font-family: Georgia, Times, "Times New Roman", serif;
+	margin-left: 20px;
+	text-decoration: none;
+}
+
 button, input, span#first {
-	font-size : 1.3em;	
+	font-size : 14pt;
+}
+
+button {
+	background-color: #e7e7e7;
+	color: black;
+	border-radius: 5px;
+}
+
+button:hover {
+	cursor: pointer;
+}
+
+button:disabled,
+button[disabled]{
+  border: 1px solid #999999;
+  background-color: #e9e9e9;
+  color: #666666;
 }
 
 #board {
 	box-sizing : border-box;
-	width: 97%;
+	width: 80%;
+	margin: auto;
 	position : absolute;
 	bottom : 5px;
 	left : 2%;
 	right : 1%;
 	height : calc(100% - 5% - 56px);
 	top : 56px;
-
 	font-size : 1.4em;
-	
 }
 
 #board div.row {
@@ -42,7 +68,7 @@ button, input, span#first {
 	text-align : center;
 	vertical-align : middle;
 	cursor : pointer;
-	border : 2px #DDDDDD solid;
+	border : 2px #f7fafa solid;
 	border-radius : 5px;
 	font-weight : bold;
 	width : 20%;
@@ -119,25 +145,25 @@ button, input, span#first {
 }
 
 .redStarts{
-	border: #ff0000;
+	border: #eb3434;
 	border-style: solid;
 	border-radius: 8px;
 }
 .blueStarts{
-	border: #00eeee;
+	border: #348ceb;
 	border-style: solid;
 	border-radius: 8px;
 }
 
 #redScore{
-	color: #ff0000;
+	color: #eb3434;
 	font-size: 23px;
 	flex-grow: 1;
 	text-align: center;
 }
 #blueScore{
 	text-align: center;
-	color: #00eeee;
+	color: #348ceb;
 	font-size: 23px;
 	flex-grow: 1;
 }

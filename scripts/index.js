@@ -8,13 +8,14 @@ Notes:
 var wordsSelected = [];
 var teams = [];
 var NUMBER_OF_WORDS = 25;
+var TOTAL_NUMBER_OF_CARDS = 280;
 var spyMasterMode = false;
 var sessionData = [];
 var customData = [];
 
-var COLOR_RED = "#ff0000";
-var COLOR_YELLOW = "#ffff00";
-var COLOR_BLUE = "#00eeee";
+var COLOR_RED = "#eb3434";
+var COLOR_YELLOW = "#fff1ba";
+var COLOR_BLUE = "#348ceb";
 var COLOR_BLACK = "#808080";
 var COLOR_GREEN = "#009000";
 
@@ -23,9 +24,9 @@ $("#seed").keyup(function() {
 	fire();
 });
 
-$("#gameMode").change(function() {
-	fire();
-});
+// $("#gameMode").change(function() {
+// 	fire();
+// });
 
 
 $("#seed").val(Math.floor(Math.random() * 1000));
@@ -35,28 +36,32 @@ function fire() {
 	//get seed and set the seed for randomizer
 	var seed = document.getElementById("seed").value;
 	Math.seedrandom(seed.toLowerCase());
-
-	var option = $('#gameMode :selected').val();
-	switch (option) {
-		case 'spanish':
-			sessionData = spanishData.slice(0);
-			break;
-		case '2knouns':
-			sessionData = data.slice(0);
-			break;
-		case 'movies':
-			sessionData = movieData.slice(0);
-			break;
-		case 'custom':
-			if (customData.length === 0) {
-				var customWordList = prompt("Please enter custom word list. The list will be saved until your refresh your browser. (The words MUST be delimanted by spaces). eg: cat dog mouse", "Enter words here");
-				customData = customWordList.split(' ');
-			}
-			sessionData = customData.slice(0);
-			break;
-		default:
-			sessionData = defaultData.slice(0);
+	sessionData = []
+	for (var i = 0; i < TOTAL_NUMBER_OF_CARDS; i++) {
+		sessionData.push(i);
 	}
+	document.getElementById("spymaster").disabled = false;
+	// var option = $('#gameMode :selected').val();
+	// switch (option) {
+	// 	case 'spanish':
+	// 		sessionData = spanishData.slice(0);
+	// 		break;
+	// 	case '2knouns':
+	// 		sessionData = data.slice(0);
+	// 		break;
+	// 	case 'movies':
+	// 		sessionData = movieData.slice(0);
+	// 		break;
+	// 	case 'custom':
+	// 		if (customData.length === 0) {
+	// 			var customWordList = prompt("Please enter custom word list. The list will be saved until your refresh your browser. (The words MUST be delimanted by spaces). eg: cat dog mouse", "Enter words here");
+	// 			customData = customWordList.split(' ');
+	// 		}
+	// 		sessionData = customData.slice(0);
+	// 		break;
+	// 	default:
+	// 		sessionData = defaultData.slice(0);
+	// }
 
 	wordsSelected = [];
 	teams = [];
@@ -83,11 +88,13 @@ function createNewGame() {
 			trs[i % 5] = "";
 		}
 		var randomNumber = Math.floor(Math.random() * sessionData.length);
-		var word = sessionData[randomNumber];
+		var imgname = sessionData[randomNumber] + ".jpg";
 		removeItem(sessionData, randomNumber);
-		wordsSelected.push(word);
-		trs[i % 5] += "<div class=\"word\" id=\'" + i + "\' onclick=\"clicked(\'" + i + "\')\"><div><a href=\"#\"><span class=\"ada\"></span>" + word + "</a></div></div>";
+		wordsSelected.push(imgname);
+		trs[i % 5] += "<div class=\"word\" id=\'" + i + "\' onclick=\"clicked(\'" + i + "\')\">" + 
+			"<div><a href=\"#\"><img id=\"pic_" + i + "\" src=\"pictures/" + imgname + "\" style=\"max-width:98%;max-height:98%\"></a></div></div>";
 	}
+
 	//<a href="#"><span class="ada">Washington stimulates economic growth </span>Read me</a>
 	for (var i = 0; i < trs.length; i++) {
 		document.getElementById("board").innerHTML += '<div class="row">' + trs[i] + '</div>'
@@ -100,7 +107,7 @@ function createNewGame() {
 	}
 
 	// one extra for one of the teams
-	if (Math.floor(Math.random() * data.length) % 2 === 0) {
+	if (Math.floor(Math.random() * TOTAL_NUMBER_OF_CARDS) % 2 === 0) {
 		teams.push(COLOR_RED);
 		// document.getElementById("team").style.color = COLOR_RED;
 		// document.getElementById("team").innerHTML = "RED";
@@ -126,7 +133,6 @@ function createNewGame() {
 
 	updateScore();
 }
-
 function clicked(value) {
 	if (spyMasterMode) {
 		//spymaster mode
@@ -148,6 +154,7 @@ function clicked(value) {
 			}
 		}
 	}
+	document.getElementById("pic_" + value).style.opacity = 0.4;
 	updateScore();
 }
 
@@ -159,20 +166,20 @@ function updateScore() {
 		redScore = 0;
 		$('div.word').each(function() {
 			var color = $(this).css('background-color');
-			if (color === 'rgb(0, 238, 238)') {
+			if (color === 'rgb(52, 140, 235)') {
 				blueScore++;
 			}
-			if (color === 'rgb(255, 0, 0)') {
+			if (color === 'rgb(235, 52, 52)') {
 				redScore++;
 			}
 		});
 	} else {
 		$('div.word').each(function() {
 			var color = $(this).css('background-color');
-			if (color === 'rgb(0, 238, 238)') {
+			if (color === 'rgb(52, 140, 235)') {
 				blueScore--;
 			}
-			if (color === 'rgb(255, 0, 0)') {
+			if (color === 'rgb(235, 52, 52)') {
 				redScore--;
 			}
 		});
@@ -196,6 +203,7 @@ function updateScore() {
 function spyMaster() {
 	//TODO: randomize or organize tiles for easier comparing
 	spyMasterMode = true;
+	document.getElementById("spymaster").disabled = true;
 	for (var i = 0; i < NUMBER_OF_WORDS; i++) {
 		document.getElementById(i).style.backgroundColor = teams[i];
 		if (teams[i] == "black") {
