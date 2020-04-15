@@ -95,6 +95,10 @@ button[disabled]{
 	height : 20%;
 }
 
+#vertCoordinates div.number {
+	font-weight: bold;
+}
+
 #board {
 	box-sizing : border-box;
 	width: 80%;
