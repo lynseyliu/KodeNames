@@ -82,6 +82,13 @@ function removeItem(array, index) {
 }
 
 function createNewGame() {
+	var verts = document.getElementById("vertCoordinates").children;
+	for (var i = 0; i < verts.length; i++)
+	{
+		var height = verts[i].offsetHeight;
+		verts[i].style.paddingTop = Math.round(height / 2).toString() + "px";
+	}
+	
 	var trs = [];
 	for (var i = 0; i < NUMBER_OF_WORDS; i++) {
 		if (!trs[i % 5]) {

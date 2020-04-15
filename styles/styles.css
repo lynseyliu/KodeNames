@@ -44,6 +44,57 @@ button[disabled]{
   color: #666666;
 }
 
+#horizCoordinates {
+	box-sizing : border-box;
+	width: 80%;
+	margin: auto;
+	position : absolute;
+	bottom : 5px;
+	left : 1%;
+	right : 1%;
+	height : calc(100% - 10% - 56px);
+	top : 10px;
+	font-size : 10pt;
+}
+
+#horizCoordinates div.row {
+    white-space: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+	box-sizing : border-box;
+	height : 20%;
+}
+
+#horizCoordinates div.letter {
+	box-sizing : border-box;
+	position : relative;
+	text-align : center;
+	vertical-align : middle;
+	font-weight : bold;
+	width : 20%;
+	height : 100%;
+	display : inline-block;
+	line-height : 99%;
+}
+
+#vertCoordinates {
+	box-sizing : border-box;
+	width: 80%;
+	margin: auto;
+	position : absolute;
+	bottom : 5px;
+	left : -30px;
+	right : 1%;
+	height : calc(100% - 10% - 56px);
+	top : 56px;
+	font-size : 10pt;
+}
+
+#vertCoordinates div.row {
+	box-sizing : border-box;
+	height : 20%;
+}
+
 #board {
 	box-sizing : border-box;
 	width: 80%;
@@ -52,7 +103,7 @@ button[disabled]{
 	bottom : 5px;
 	left : 2%;
 	right : 1%;
-	height : calc(100% - 5% - 56px);
+	height : calc(100% - 10% - 56px);
 	top : 56px;
 	font-size : 1.4em;
 }
@@ -75,7 +126,6 @@ button[disabled]{
 	height : 100%;
 	display : inline-block;
 	line-height : 99%;
-
 }
 
 #board div.word div {
