@@ -1,7 +1,7 @@
 Forked from https://github.com/ninjabunny/KodeNames
 
 # KodeNames Pictures
-A popular ~~word~~ picture game.
+A popular ~~word~~ picture game. Playable at https://lynseyliu.github.io/kodenames-pix/.
 
 # Features
 * ADA Compliant
