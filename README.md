@@ -3,13 +3,6 @@ Forked from https://github.com/ninjabunny/KodeNames
 # KodeNames Pictures
 A popular ~~word~~ picture game. Playable at https://lynseyliu.github.io/kodenames-pix/.
 
-# Features
-* ADA Compliant
-* Picture set from the original CodeNames Pictures board game
-* Colorblind-friendly Colors
-* Muli-language compatible with google translate
-* Mobile-friendly
-
 # Instructions:
 1. Distribute website to players
 2. Make sure each person uses the same SEED (this will sync your pictures)
